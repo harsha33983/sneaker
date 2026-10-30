@@ -111,14 +111,43 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               </div>
             </div>
 
-            {/* Description */}
-            <div className="border-y border-[#262626] py-6 space-y-3">
+            {/* Description & Specifications */}
+            <div className="border-y border-[#262626] py-6 space-y-4">
               <h3 className="text-xs font-bold uppercase tracking-wider text-[#A4A19B] font-[family-name:var(--font-space)]">
                 SILHOUETTE ARCHIVE NOTES
               </h3>
               <p className="text-sm text-[#CCCCCC] leading-relaxed font-light">
                 {product.description}
               </p>
+
+              {(product.style_id || product.colorway || product.retail_price || product.release_date) && (
+                <div className="pt-3 grid grid-cols-2 gap-3 text-xs border-t border-[#222222]">
+                  {product.style_id && (
+                    <div className="p-2.5 rounded-xl bg-[#181818] border border-[#262626]">
+                      <span className="block text-[10px] font-mono text-[#777777] uppercase">STYLE ID</span>
+                      <span className="font-mono font-bold text-[#F5F3EE]">{product.style_id}</span>
+                    </div>
+                  )}
+                  {product.colorway && (
+                    <div className="p-2.5 rounded-xl bg-[#181818] border border-[#262626]">
+                      <span className="block text-[10px] font-mono text-[#777777] uppercase">COLORWAY</span>
+                      <span className="font-bold text-[#F5F3EE] line-clamp-1">{product.colorway}</span>
+                    </div>
+                  )}
+                  {product.retail_price && (
+                    <div className="p-2.5 rounded-xl bg-[#181818] border border-[#262626]">
+                      <span className="block text-[10px] font-mono text-[#777777] uppercase">ORIGINAL RETAIL</span>
+                      <span className="font-mono font-bold text-[#A4A19B]">${product.retail_price} USD</span>
+                    </div>
+                  )}
+                  {product.release_date && (
+                    <div className="p-2.5 rounded-xl bg-[#181818] border border-[#262626]">
+                      <span className="block text-[10px] font-mono text-[#777777] uppercase">RELEASE DATE</span>
+                      <span className="font-mono font-bold text-[#F5F3EE]">{product.release_date}</span>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* CTA / Waitlist Interaction */}

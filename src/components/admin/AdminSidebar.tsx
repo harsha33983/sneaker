@@ -11,6 +11,7 @@ import {
   LogOut,
   ArrowUpRight,
   Shield,
+  Download,
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -32,6 +33,7 @@ function AdminSidebarContent() {
   const navItems = [
     { name: 'Overview', href: '/admin', icon: LayoutDashboard },
     { name: 'All Products', href: '/admin/products', icon: Package },
+    { name: 'Import Discovery', href: '/admin/import-sneakers', icon: Download },
     { name: 'Add Sneaker', href: '/admin/products/new', icon: PlusCircle },
     { name: 'Waitlist Entries', href: '/admin/waitlist', icon: Users },
   ];

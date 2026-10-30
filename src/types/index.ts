@@ -13,6 +13,13 @@ export interface Product {
   category: string;
   availability: Availability;
   is_featured: boolean;
+  external_source?: string | null;
+  external_product_id?: string | null;
+  style_id?: string | null;
+  colorway?: string | null;
+  release_date?: string | null;
+  retail_price?: number | null;
+  marketplace_prices?: Record<string, number | null> | null;
   created_at: string;
   updated_at: string;
 }

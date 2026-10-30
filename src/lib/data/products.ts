@@ -77,6 +77,8 @@ export const SEED_PRODUCTS: Product[] = [
 // In-memory cache for fallback mode when Supabase is not yet populated
 let localProducts = [...SEED_PRODUCTS];
 
+export const getAllProducts = getProducts;
+
 export async function getProducts(options?: {
   category?: string;
   availability?: string;
@@ -197,22 +199,30 @@ export async function getProductById(id: string): Promise<Product | null> {
 export async function createProduct(payload: Omit<Product, 'id' | 'created_at' | 'updated_at'>): Promise<Product> {
   if (isSupabaseConfigured()) {
     const admin = createAdminClient();
+    const insertPayload: Record<string, any> = {
+      name: payload.name,
+      slug: payload.slug,
+      brand: payload.brand,
+      price: payload.price,
+      description: payload.description,
+      image_url: payload.image_url,
+      images: payload.images || [],
+      category: payload.category,
+      availability: payload.availability,
+      is_featured: payload.is_featured ?? false,
+    };
+
+    if (payload.external_source !== undefined) insertPayload.external_source = payload.external_source;
+    if (payload.external_product_id !== undefined) insertPayload.external_product_id = payload.external_product_id;
+    if (payload.style_id !== undefined) insertPayload.style_id = payload.style_id;
+    if (payload.colorway !== undefined) insertPayload.colorway = payload.colorway;
+    if (payload.release_date !== undefined) insertPayload.release_date = payload.release_date;
+    if (payload.retail_price !== undefined) insertPayload.retail_price = payload.retail_price;
+    if (payload.marketplace_prices !== undefined) insertPayload.marketplace_prices = payload.marketplace_prices;
+
     const { data, error } = await admin
       .from('products')
-      .insert([
-        {
-          name: payload.name,
-          slug: payload.slug,
-          brand: payload.brand,
-          price: payload.price,
-          description: payload.description,
-          image_url: payload.image_url,
-          images: payload.images || [],
-          category: payload.category,
-          availability: payload.availability,
-          is_featured: payload.is_featured ?? false,
-        },
-      ])
+      .insert([insertPayload])
       .select()
       .single();
 
