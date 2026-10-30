@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import Link from 'next/link';
 import { Product } from '@/types';
 import ProductGrid from '@/components/products/ProductGrid';
-import { Search, SlidersHorizontal, ArrowUpDown } from 'lucide-react';
+import { Search, SlidersHorizontal, ArrowUpDown, ArrowUpRight } from 'lucide-react';
 
 interface CollectionsCatalogueProps {
   initialProducts: Product[];
@@ -134,6 +135,23 @@ export default function CollectionsCatalogue({ initialProducts }: CollectionsCat
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Live Discovery Cross-Link Banner */}
+      <div className="p-4 rounded-xl bg-gradient-to-r from-[#181818] via-[#1a1a1a] to-[#181818] border border-[#2d2d2d] flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5">
+          <span className="w-2 h-2 rounded-full bg-[#D7FF45] animate-pulse shrink-0" />
+          <p className="text-xs text-[#A4A19B]">
+            Looking for non-catalogue global listings? Check <span className="text-[#F5F3EE] font-bold">Live Sneaker Discovery</span> to compare 690+ verified retailers.
+          </p>
+        </div>
+        <Link
+          href="/discover"
+          className="text-xs font-mono font-bold text-[#D7FF45] hover:underline flex items-center gap-1 uppercase tracking-wider shrink-0"
+        >
+          <span>Open Live Discovery</span>
+          <ArrowUpRight className="w-3.5 h-3.5" />
+        </Link>
       </div>
 
       {/* Results Header Count */}

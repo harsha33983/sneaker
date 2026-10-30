@@ -55,6 +55,12 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
+                <Link href="/discover" className="hover:text-[#D7FF45] transition-colors flex items-center gap-1 font-semibold text-[#F5F3EE]">
+                  <span>Live Sneaker Discovery</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D7FF45] animate-pulse" />
+                </Link>
+              </li>
+              <li>
                 <Link href="/collections" className="hover:text-[#D7FF45] transition-colors flex items-center gap-1">
                   <span>Current Catalogue</span>
                   <ArrowUpRight className="w-3 h-3 opacity-60" />
