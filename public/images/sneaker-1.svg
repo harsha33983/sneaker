@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181818" />
+      <stop offset="100%" stop-color="#0d0d0d" />
+    </linearGradient>
+    <linearGradient id="soleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2a2a2a" />
+      <stop offset="50%" stop-color="#D7FF45" />
+      <stop offset="100%" stop-color="#222222" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg1)"/>
+  <circle cx="400" cy="300" r="220" fill="#202020" opacity="0.6"/>
+  <circle cx="400" cy="300" r="160" fill="#D7FF45" opacity="0.06" filter="url(#glow)"/>
+  
+  <!-- Silhouette of High-top Luxury Sneaker -->
+  <g transform="translate(100, 120)">
+    <!-- Shadow -->
+    <ellipse cx="300" cy="340" rx="260" ry="25" fill="#000" opacity="0.7" filter="url(#glow)"/>
+    
+    <!-- Sole -->
+    <path d="M 60,300 C 120,310 380,315 540,290 C 560,285 570,270 560,250 C 530,255 420,260 300,260 C 180,260 90,250 60,275 Z" fill="#222" stroke="#333" stroke-width="2"/>
+    <path d="M 70,305 C 130,315 370,320 530,295" stroke="#D7FF45" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+    
+    <!-- Upper Body -->
+    <path d="M 60,275 C 90,240 130,220 170,210 C 230,195 280,180 300,120 C 310,90 350,70 380,80 C 400,90 410,130 420,180 C 440,200 510,230 550,250 C 520,255 420,260 300,260 C 180,260 90,250 60,275 Z" fill="#2a2a2a" stroke="#444" stroke-width="2"/>
+    
+    <!-- Ankle Collar -->
+    <path d="M 300,120 C 310,80 360,65 390,75 C 410,85 415,115 420,170 C 390,165 340,160 300,170 Z" fill="#1c1c1c" stroke="#555" stroke-width="1.5"/>
+    
+    <!-- Swoosh / Brand Accent Wave -->
+    <path d="M 160,230 C 240,225 350,190 460,170 C 480,166 430,210 320,235 C 230,255 170,245 160,230 Z" fill="#D7FF45" opacity="0.95" filter="url(#glow)"/>
+    
+    <!-- Laces -->
+    <line x1="260" y1="195" x2="295" y2="185" stroke="#F5F3EE" stroke-width="3" stroke-linecap="round"/>
+    <line x1="275" y1="180" x2="310" y2="170" stroke="#F5F3EE" stroke-width="3" stroke-linecap="round"/>
+    <line x1="290" y1="165" x2="325" y2="155" stroke="#F5F3EE" stroke-width="3" stroke-linecap="round"/>
+    <line x1="305" y1="150" x2="340" y2="140" stroke="#F5F3EE" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Perforations -->
+    <circle cx="120" cy="255" r="2" fill="#555"/>
+    <circle cx="130" cy="252" r="2" fill="#555"/>
+    <circle cx="140" cy="250" r="2" fill="#555"/>
+    <circle cx="125" cy="260" r="2" fill="#555"/>
+    <circle cx="135" cy="258" r="2" fill="#555"/>
+  </g>
+  
+  <text x="50" y="80" fill="#F5F3EE" font-family="sans-serif" font-weight="900" font-size="28" letter-spacing="4">AIR PHANTOM X</text>
+  <text x="50" y="110" fill="#D7FF45" font-family="sans-serif" font-weight="600" font-size="14" letter-spacing="2">EDITION 001 // STEALTH</text>
+  <text x="750" y="550" text-anchor="end" fill="#555" font-family="sans-serif" font-size="14" letter-spacing="2">SNEAKERDROP LABS</text>
+</svg>
