@@ -28,48 +28,28 @@ export default function Hero() {
           {/* Left Column: Editorial Headline & Copy */}
           <div className="lg:col-span-7 space-y-6 text-left">
             {/* Tag / Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1e1e1e] border border-[#333333] text-xs font-semibold text-[#D7FF45]"
-            >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1e1e1e] border border-[#333333] text-xs font-semibold text-[#D7FF45]">
               <Flame className="w-3.5 h-3.5" />
               <span className="font-[family-name:var(--font-space)] tracking-widest uppercase">
                 SEASON 2026 // LIMITED ARCHIVE
               </span>
-            </motion.div>
+            </div>
 
             {/* Oversized Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-[family-name:var(--font-space)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter text-[#F5F3EE] leading-[0.92]"
-            >
+            <h1 className="font-[family-name:var(--font-space)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter text-[#F5F3EE] leading-[0.92]">
               NOT MADE <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5F3EE] via-[#D7FF45] to-[#F5F3EE]">
                 FOR EVERYONE.
               </span>
-            </motion.h1>
+            </h1>
 
             {/* Subheading */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg text-[#A4A19B] max-w-xl leading-relaxed font-light"
-            >
+            <p className="text-base sm:text-lg text-[#A4A19B] max-w-xl leading-relaxed font-light">
               Discover sneakers that define individuality. Limited releases. Iconic silhouettes. Introducing the 198 g <span className="text-[#D7FF45] font-medium">Nova 01</span> with a continuous light strip and glowing foam midsole.
-            </motion.p>
+            </p>
 
             {/* Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="pt-4 flex flex-wrap items-center gap-4"
-            >
+            <div className="pt-4 flex flex-wrap items-center gap-4">
               <Link
                 href="/nova"
                 className="inline-flex items-center gap-2 bg-[#ff6a1f] text-[#140802] hover:bg-[#ff7d3a] font-[family-name:var(--font-space)] font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-full transition-all duration-200 active:scale-95 shadow-lg shadow-[#ff6a1f]/25"
@@ -85,15 +65,10 @@ export default function Hero() {
                 <span>EXPLORE ALL DROPS</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
-            </motion.div>
+            </div>
 
             {/* Trust Metrics */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="pt-8 flex items-center gap-8 border-t border-[#222222] text-xs text-[#888884]"
-            >
+            <div className="pt-8 flex items-center gap-8 border-t border-[#222222] text-xs text-[#888884]">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-[#D7FF45]" />
                 <span>100% Verified Originals</span>
@@ -102,16 +77,11 @@ export default function Hero() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D7FF45]" />
                 <span>120-Frame Interactive 3D Canvas</span>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right Column: Hero Sneaker Showcase Graphic */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: 3 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-5 relative"
-          >
+          <div className="lg:col-span-5 relative">
             {/* Visual Frame */}
             <Link
               href="/nova"
@@ -158,7 +128,7 @@ export default function Hero() {
                 </span>
               </div>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </div>
 

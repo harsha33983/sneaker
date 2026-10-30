@@ -147,9 +147,5 @@ function NavbarContent() {
 }
 
 export default function Navbar() {
-  return (
-    <Suspense fallback={<header className="fixed top-0 left-0 right-0 z-50 bg-transparent py-6" />}>
-      <NavbarContent />
-    </Suspense>
-  );
+  return <NavbarContent />;
 }
