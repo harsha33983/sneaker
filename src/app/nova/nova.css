@@ -1,0 +1,737 @@
+/* Google Fonts Import for Anton, Inter Tight, and JetBrains Mono */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #010101;
+  --cream: #f3ece2;
+  --muted: #8d857c;
+  --orange: #ff6a1f;
+  --ember: #5a2410;
+  --line: rgba(243, 236, 226, 0.14);
+  --gutter: clamp(20px, 4.5vw, 64px);
+
+  --font-display: 'Anton', sans-serif;
+  --font-body: 'Inter Tight', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Base Body Styles */
+html {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body.nova-page {
+  background: var(--bg);
+  color: var(--cream);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+/* Typography Helpers */
+.nova-page .mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nova-page h1,
+.nova-page h2,
+.nova-page h3,
+.nova-page .display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Buttons */
+.nova-page .btn-pill {
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 16px 28px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s, box-shadow 0.2s;
+}
+
+.nova-page .btn-pill:hover {
+  transform: translateY(-1px);
+}
+
+.nova-page .btn-orange {
+  background: var(--orange);
+  color: #140802;
+  box-shadow: 0 10px 40px -12px rgba(255, 106, 31, 0.8);
+}
+
+.nova-page .btn-orange:hover {
+  background: #ff7d3a;
+  box-shadow: 0 14px 44px -10px rgba(255, 106, 31, 0.95);
+}
+
+.nova-page .btn-sm {
+  padding: 11px 18px;
+  font-size: 14px;
+}
+
+/* Navigation */
+.nova-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 20;
+  padding: 20px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+  animation: novaNavFadeIn 0.8s ease forwards;
+}
+
+.nova-nav.scrolled {
+  background: rgba(1, 1, 1, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+@keyframes novaNavFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nova-nav-logo {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+  text-decoration: none;
+}
+
+.nova-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nova-nav-links a {
+  font-size: 14px;
+  color: var(--cream);
+  opacity: 0.75;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.nova-nav-links a:hover {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .nova-nav-links {
+    display: none;
+  }
+}
+
+/* Scroll Stage Container */
+.nova-scroll-section {
+  position: relative;
+  height: 500vh;
+  width: 100%;
+  background: var(--bg);
+}
+
+.nova-sticky-stage {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--bg);
+}
+
+/* Giant Words (Layer 0) */
+.nova-giant-word {
+  position: absolute;
+  font-family: var(--font-display);
+  color: var(--ember);
+  font-size: clamp(120px, 27vw, 460px);
+  line-height: 0.8;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  will-change: transform, opacity;
+  opacity: var(--b1, 1);
+}
+
+.nova-giant-run {
+  left: 4vw;
+  top: 10vh;
+  transform: translateX(calc(var(--p, 0) * -40vw));
+}
+
+.nova-giant-light {
+  right: 3vw;
+  bottom: 6vh;
+  transform: translateX(calc(var(--p, 0) * 40vw));
+}
+
+/* Canvas (Layer 1) with mix-blend-mode: screen */
+.nova-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* Overlay (Layer 2) */
+.nova-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Loading Bar */
+.nova-loading-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(243, 236, 226, 0.08);
+  z-index: 10;
+}
+
+.nova-loading-fill {
+  height: 100%;
+  background: var(--orange);
+  transition: width 0.15s ease-out;
+}
+
+/* Progress Rail (always visible in stage) */
+.nova-progress-rail {
+  position: absolute;
+  right: var(--gutter);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 140px;
+  background: var(--line);
+  z-index: 5;
+}
+
+.nova-progress-fill {
+  width: 1px;
+  height: 100%;
+  background: var(--orange);
+  transform-origin: top;
+  transform: scaleY(var(--p, 0));
+  will-change: transform;
+}
+
+/* Step Counter (always visible in stage) */
+.nova-step-counter {
+  position: absolute;
+  bottom: 9vh;
+  right: var(--gutter);
+  z-index: 5;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.nova-step-active {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+/* Beat 1 */
+.nova-beat-1 {
+  position: absolute;
+  bottom: 9vh;
+  left: var(--gutter);
+  opacity: var(--b1, 1);
+  transform: translateY(calc((1 - var(--b1, 1)) * -24px));
+  will-change: transform, opacity;
+  transition: opacity 0.1s linear;
+}
+
+.nova-beat-1-kicker {
+  color: var(--orange);
+  margin-bottom: 8px;
+  opacity: 0;
+  animation: novaFadeRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+.nova-beat-1-text {
+  font-size: clamp(17px, 1.4vw, 21px);
+  max-width: 30ch;
+  line-height: 1.4;
+  color: var(--cream);
+  opacity: 0;
+  animation: novaFadeRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+}
+
+@keyframes novaFadeRise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Beat 2 */
+.nova-beat-2 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: var(--b2, 0);
+  transform: translateY(calc((1 - var(--b2, 0)) * 24px));
+  will-change: transform, opacity;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--gutter);
+  box-sizing: border-box;
+}
+
+.nova-beat-2-left {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 9vw, 150px);
+  line-height: 0.86;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.nova-beat-2-left span.orange {
+  color: var(--orange);
+  display: block;
+}
+
+.nova-beat-2-right {
+  width: min(300px, 24vw);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nova-beat-2-body {
+  font-size: 16px;
+  color: rgba(243, 236, 226, 0.8);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.nova-beat-2-stat {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 7vw, 110px);
+  line-height: 0.9;
+  color: var(--cream);
+}
+
+.nova-beat-2-stat span.unit {
+  font-size: 0.45em;
+  color: var(--orange);
+  margin-left: 2px;
+}
+
+/* Beat 3 */
+.nova-beat-3 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: var(--b3, 0);
+  will-change: opacity;
+}
+
+.nova-beat-3-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.nova-callout-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--orange);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255, 106, 31, 0.25);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.nova-callout-label {
+  position: absolute;
+  pointer-events: none;
+  text-shadow: 0 1px 12px rgba(1, 1, 1, 0.9);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  will-change: opacity;
+}
+
+.nova-callout-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nova-callout-value {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2vw, 30px);
+  text-transform: uppercase;
+  color: var(--cream);
+  line-height: 1.1;
+}
+
+/* Sections Below the Stage */
+.nova-section {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(90px, 12vw, 170px) var(--gutter) 0;
+  box-sizing: border-box;
+}
+
+.nova-section.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nova-section.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nova-section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6.5vw, 100px);
+  line-height: 0.92;
+  text-transform: uppercase;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+/* Specs Grid */
+.nova-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-top: clamp(48px, 6vw, 84px);
+}
+
+.nova-spec-col {
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nova-spec-num {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 5vw, 76px);
+  line-height: 0.9;
+  color: var(--cream);
+  transition: color 0.2s ease;
+}
+
+.nova-spec-col:hover .nova-spec-num {
+  color: var(--orange);
+}
+
+.nova-spec-desc {
+  color: rgba(243, 236, 226, 0.7);
+  font-size: 15px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Pre-order Section */
+.nova-order-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+  padding-bottom: clamp(90px, 10vw, 150px);
+  margin-top: clamp(48px, 6vw, 84px);
+}
+
+.nova-order-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.nova-order-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nova-order-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nova-order-price {
+  font-family: var(--font-display);
+  font-size: 44px;
+  line-height: 1;
+  color: var(--cream);
+}
+
+.nova-sizes-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nova-size-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--cream);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.nova-size-btn:hover {
+  border-color: rgba(243, 236, 226, 0.4);
+}
+
+.nova-size-btn.active {
+  background: var(--cream);
+  color: var(--bg);
+  border-color: var(--cream);
+  font-weight: 600;
+}
+
+.nova-order-terms {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Footer */
+.nova-footer {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 40px var(--gutter) 60px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.nova-footer-brand {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+}
+
+.nova-footer-copy {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Mobile Media Query (<760px) */
+@media (max-width: 760px) {
+  .nova-giant-word {
+    font-size: 34vw;
+  }
+
+  .nova-giant-run {
+    left: 4vw;
+    top: 14vh;
+  }
+
+  .nova-giant-light {
+    right: 4vw;
+    bottom: 24vh;
+  }
+
+  .nova-beat-1 {
+    bottom: 8vh;
+  }
+
+  .nova-beat-2 {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12vh var(--gutter) 8vh;
+    text-align: left;
+  }
+
+  .nova-beat-2-left {
+    font-size: 15vw;
+    width: 100%;
+  }
+
+  .nova-beat-2-right {
+    width: 100%;
+  }
+
+  .nova-beat-2-body {
+    display: none;
+  }
+
+  .nova-beat-2-stat {
+    font-size: 64px;
+  }
+
+  /* Beat 3 on mobile: hide lines/dots, stack list at bottom */
+  .nova-beat-3-svg,
+  .nova-callout-dot {
+    display: none !important;
+  }
+
+  .nova-callout-label {
+    position: static !important;
+    text-align: left !important;
+    margin-bottom: 14px;
+  }
+
+  .nova-mobile-callout-list {
+    position: absolute;
+    bottom: 9vh;
+    left: var(--gutter);
+    right: var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .nova-progress-rail {
+    display: none;
+  }
+
+  .nova-step-counter {
+    bottom: auto;
+    top: 84px;
+    right: var(--gutter);
+  }
+
+  .nova-specs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .nova-order-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .nova-footer {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .nova-scroll-section {
+    height: 100vh !important;
+  }
+
+  .nova-sticky-stage {
+    height: 100vh !important;
+  }
+
+  .nova-giant-word {
+    transform: none !important;
+    opacity: 0.15 !important;
+  }
+
+  .nova-beat-1,
+  .nova-beat-2 {
+    display: none !important;
+  }
+
+  .nova-beat-3 {
+    opacity: 1 !important;
+  }
+
+  .nova-callout-dot,
+  .nova-callout-label {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .nova-section.reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .nova-loading-bar {
+    display: none !important;
+  }
+}

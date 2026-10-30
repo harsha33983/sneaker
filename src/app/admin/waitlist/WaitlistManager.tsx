@@ -245,3 +245,4 @@ export default function WaitlistManager({ initialEntries, products }: WaitlistMa
     </div>
   );
 }
+

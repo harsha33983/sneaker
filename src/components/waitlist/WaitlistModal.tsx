@@ -228,3 +228,4 @@ export default function WaitlistModal({ product, isOpen, onClose }: WaitlistModa
     </AnimatePresence>
   );
 }
+

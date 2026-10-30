@@ -35,3 +35,4 @@ export default function NewsletterCta() {
     </section>
   );
 }
+

@@ -53,3 +53,4 @@ export default function ProductGrid({ products, loading = false }: ProductGridPr
     </div>
   );
 }
+

@@ -266,3 +266,4 @@ export async function updateWaitlistStatus(id: string, status: WaitlistStatus): 
   }
   return false;
 }
+

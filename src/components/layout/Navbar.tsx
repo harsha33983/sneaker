@@ -21,6 +21,7 @@ function NavbarContent() {
 
   const navLinks = [
     { name: 'HOME', href: '/' },
+    { name: 'NOVA 01', href: '/nova' },
     { name: 'COLLECTIONS', href: '/collections' },
     { name: 'ABOUT', href: '/about' },
   ];

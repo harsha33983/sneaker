@@ -295,3 +295,4 @@ export default function ProductsManager({ initialProducts }: ProductsManagerProp
     </div>
   );
 }
+

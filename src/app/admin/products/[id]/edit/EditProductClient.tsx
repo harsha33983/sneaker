@@ -277,3 +277,4 @@ export default function EditProductClient({ product }: EditProductClientProps) {
     </div>
   );
 }
+

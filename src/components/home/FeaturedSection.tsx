@@ -41,3 +41,4 @@ export default function FeaturedSection({ products }: FeaturedSectionProps) {
     </section>
   );
 }
+

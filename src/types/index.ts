@@ -53,3 +53,4 @@ export interface DashboardStats {
   soldOutProducts: number;
   totalWaitlist: number;
 }
+

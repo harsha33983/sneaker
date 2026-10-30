@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowDown, ArrowUpRight, Flame, ShieldCheck } from 'lucide-react';
+import { ArrowUpRight, Flame, ShieldCheck, Play } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -60,7 +60,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-base sm:text-lg text-[#A4A19B] max-w-xl leading-relaxed font-light"
             >
-              Discover sneakers that define individuality. Limited releases. Iconic silhouettes. Uncompromising luxury streetwear craftsmanship.
+              Discover sneakers that define individuality. Limited releases. Iconic silhouettes. Introducing the 198 g <span className="text-[#D7FF45] font-medium">Nova 01</span> with a continuous light strip and glowing foam midsole.
             </motion.p>
 
             {/* Action Buttons */}
@@ -71,20 +71,20 @@ export default function Hero() {
               className="pt-4 flex flex-wrap items-center gap-4"
             >
               <Link
-                href="/collections"
-                className="inline-flex items-center gap-2 bg-[#D7FF45] text-[#111111] hover:bg-[#c4ec30] font-[family-name:var(--font-space)] font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-full transition-all duration-200 active:scale-95 shadow-lg shadow-[#D7FF45]/15"
+                href="/nova"
+                className="inline-flex items-center gap-2 bg-[#ff6a1f] text-[#140802] hover:bg-[#ff7d3a] font-[family-name:var(--font-space)] font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-full transition-all duration-200 active:scale-95 shadow-lg shadow-[#ff6a1f]/25"
               >
-                <span>EXPLORE COLLECTION</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <Play className="w-4 h-4 fill-current" />
+                <span>EXPERIENCE NOVA 01 (120-FRAME STAGE)</span>
               </Link>
 
-              <a
-                href="#featured-drops"
+              <Link
+                href="/collections"
                 className="inline-flex items-center gap-2 bg-[#1c1c1c] text-[#F5F3EE] hover:bg-[#252525] border border-[#333333] hover:border-[#D7FF45]/50 font-[family-name:var(--font-space)] font-bold text-xs uppercase tracking-wider px-7 py-4 rounded-full transition-all duration-200"
               >
-                <span>DISCOVER THE DROP</span>
-                <ArrowDown className="w-3.5 h-3.5" />
-              </a>
+                <span>EXPLORE ALL DROPS</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
             </motion.div>
 
             {/* Trust Metrics */}
@@ -100,7 +100,7 @@ export default function Hero() {
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D7FF45]" />
-                <span>Real-Time Drop Availability</span>
+                <span>120-Frame Interactive 3D Canvas</span>
               </div>
             </motion.div>
           </div>
@@ -113,9 +113,12 @@ export default function Hero() {
             className="lg:col-span-5 relative"
           >
             {/* Visual Frame */}
-            <div className="relative aspect-square max-w-[500px] mx-auto rounded-3xl bg-gradient-to-b from-[#222222] to-[#141414] border border-[#333333] p-8 flex items-center justify-center overflow-hidden shadow-2xl group">
+            <Link
+              href="/nova"
+              className="block relative aspect-square max-w-[500px] mx-auto rounded-3xl bg-gradient-to-b from-[#222222] to-[#141414] border border-[#333333] hover:border-[#ff6a1f]/60 p-8 flex items-center justify-center overflow-hidden shadow-2xl group transition-colors"
+            >
               {/* Radial backdrop */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(215,255,69,0.08)_0%,transparent_70%)] pointer-events-none" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,106,31,0.12)_0%,transparent_70%)] pointer-events-none" />
 
               {/* Floating Sneaker Graphic */}
               <motion.div
@@ -131,30 +134,30 @@ export default function Hero() {
                 className="relative w-full h-full"
               >
                 <Image
-                  src="/images/sneaker-1.svg"
-                  alt="Air Phantom X — Signature Sneaker"
+                  src="https://prompts.picsmob.com/frames/nova/frame_0001.jpg"
+                  alt="Nova 01 — 198g Road Runner"
                   fill
                   priority
-                  className="object-contain drop-shadow-[0_30px_35px_rgba(0,0,0,0.8)] filter group-hover:scale-105 transition-transform duration-500"
+                  className="object-contain drop-shadow-[0_30px_35px_rgba(0,0,0,0.9)] filter group-hover:scale-105 transition-transform duration-500"
                   unoptimized
                 />
               </motion.div>
 
               {/* Floating Drop Tag */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-[#111111]/80 backdrop-blur-md border border-[#333333] flex items-center justify-between">
+              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-[#111111]/90 backdrop-blur-md border border-[#333333] flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] font-mono text-[#D7FF45] uppercase tracking-wider block">
-                    CURRENT HEADLINER
+                  <span className="text-[10px] font-mono text-[#ff6a1f] uppercase tracking-wider block font-bold">
+                    HEADLINER // SCROLL 360°
                   </span>
                   <span className="font-[family-name:var(--font-space)] text-sm font-bold text-[#F5F3EE]">
-                    AIR PHANTOM X
+                    NOVA 01 — 198g ROAD RUNNER
                   </span>
                 </div>
-                <span className="text-xs font-mono font-bold text-[#F5F3EE] bg-[#222222] px-3 py-1 rounded-lg border border-[#333333]">
+                <span className="text-xs font-mono font-bold text-[#140802] bg-[#ff6a1f] px-3 py-1.5 rounded-lg">
                   ₹12,999
                 </span>
               </div>
-            </div>
+            </Link>
           </motion.div>
         </div>
       </div>

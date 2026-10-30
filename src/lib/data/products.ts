@@ -2,8 +2,28 @@ import { createAdminClient, isSupabaseConfigured } from '@/lib/supabase/admin';
 import { createServerSupabaseClient } from '@/lib/supabase/server';
 import { Product, Availability } from '@/types';
 
-// Default initial seed data defined in PRD Section 6.1
+// Default initial seed data defined in PRD Section 6.1 + Nova 01
 export const SEED_PRODUCTS: Product[] = [
+  {
+    id: 'e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c',
+    name: 'Nova 01',
+    slug: 'nova-01',
+    brand: 'Nova Running',
+    price: 12999,
+    description:
+      'A 198 g road-running shoe with a glowing foam midsole. One piece of foam, tuned to give back more than you put in. A light strip runs through it, so you are seen before you are heard.',
+    image_url: 'https://prompts.picsmob.com/frames/nova/frame_0001.jpg',
+    images: [
+      'https://prompts.picsmob.com/frames/nova/frame_0001.jpg',
+      'https://prompts.picsmob.com/frames/nova/frame_0060.jpg',
+      'https://prompts.picsmob.com/frames/nova/frame_0120.jpg',
+    ],
+    category: 'Running',
+    availability: 'limited',
+    is_featured: true,
+    created_at: new Date('2026-10-15T08:00:00Z').toISOString(),
+    updated_at: new Date('2026-10-15T08:00:00Z').toISOString(),
+  },
   {
     id: 'f47ac10b-58cc-4372-a567-0e02b2c3d479',
     name: 'Air Phantom X',
@@ -258,3 +278,4 @@ export async function deleteProduct(id: string): Promise<boolean> {
   localProducts = localProducts.filter((p) => p.id !== id);
   return localProducts.length < initialLength;
 }
+
