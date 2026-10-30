@@ -22,3 +22,4 @@ CREATE UNIQUE INDEX IF NOT EXISTS idx_products_external_unique
 CREATE INDEX IF NOT EXISTS idx_products_style_id
   ON products(style_id)
   WHERE style_id IS NOT NULL;
+

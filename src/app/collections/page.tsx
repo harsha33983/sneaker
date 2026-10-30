@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   description: 'Explore the complete collection of exclusive sneaker drops, archival silhouettes, and limited releases.',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function CollectionsPage() {
   const products = await getProducts();
 

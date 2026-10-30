@@ -68,6 +68,19 @@ export default function ProductCard({ product }: ProductCardProps) {
               </h3>
             </Link>
 
+            {product.style_id && (
+              <div className="mt-1 flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono text-[#A4A19B] bg-[#222222] border border-[#333333]">
+                  SKU: {product.style_id}
+                </span>
+                {product.colorway && (
+                  <span className="text-[10px] text-[#777777] truncate max-w-[120px]">
+                    {product.colorway}
+                  </span>
+                )}
+              </div>
+            )}
+
             <p className="text-xs text-[#A4A19B] line-clamp-2 mt-1.5 leading-relaxed font-light">
               {product.description}
             </p>
@@ -82,6 +95,11 @@ export default function ProductCard({ product }: ProductCardProps) {
               <span className="font-[family-name:var(--font-space)] text-lg font-black text-[#F5F3EE]">
                 {formatPrice(product.price)}
               </span>
+              {product.retail_price && (
+                <span className="block text-[10px] font-mono text-[#666666]">
+                  Retail: ${product.retail_price} USD
+                </span>
+              )}
             </div>
 
             <div className="flex items-center gap-2">

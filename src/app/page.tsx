@@ -8,6 +8,8 @@ import WhyUs from '@/components/home/WhyUs';
 import NewsletterCta from '@/components/home/NewsletterCta';
 import { getProducts } from '@/lib/data/products';
 
+export const dynamic = 'force-dynamic';
+
 export default async function HomePage() {
   const products = await getProducts();
   const featured = products.filter((p) => p.is_featured);

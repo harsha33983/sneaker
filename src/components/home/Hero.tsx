@@ -85,7 +85,7 @@ export default function Hero() {
             {/* Visual Frame */}
             <Link
               href="/nova"
-              className="block relative aspect-square max-w-[500px] mx-auto rounded-3xl bg-gradient-to-b from-[#222222] to-[#141414] border border-[#333333] hover:border-[#ff6a1f]/60 p-8 flex items-center justify-center overflow-hidden shadow-2xl group transition-colors"
+              className="relative aspect-square max-w-[500px] w-full mx-auto rounded-3xl bg-gradient-to-b from-[#222222] to-[#141414] border border-[#333333] hover:border-[#ff6a1f]/60 p-8 flex items-center justify-center overflow-hidden shadow-2xl group transition-colors"
             >
               {/* Radial backdrop */}
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,106,31,0.12)_0%,transparent_70%)] pointer-events-none" />
@@ -101,7 +101,7 @@ export default function Hero() {
                   duration: 6,
                   ease: 'easeInOut',
                 }}
-                className="relative w-full h-full"
+                className="relative w-full h-full min-h-[260px] flex items-center justify-center"
               >
                 <Image
                   src="https://prompts.picsmob.com/frames/nova/frame_0001.jpg"
