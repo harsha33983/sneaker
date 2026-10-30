@@ -8,6 +8,24 @@
  * NOTE: NEVER import or use this client in React client components.
  */
 
+// Prevent Mongoose OverwriteModelError in Next.js build / Turbopack / HMR
+try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const mongoose = require('mongoose');
+  if (mongoose && typeof mongoose.model === 'function' && !mongoose.__sneaker_drop_patched) {
+    const origModel = mongoose.model.bind(mongoose);
+    mongoose.model = function (name: string, schema?: unknown, ...args: unknown[]) {
+      if (schema && ((mongoose.models && mongoose.models[name]) || (mongoose.connection?.models && mongoose.connection.models[name]))) {
+        return mongoose.models[name] || mongoose.connection.models[name];
+      }
+      return origModel(name, schema, ...args);
+    };
+    mongoose.__sneaker_drop_patched = true;
+  }
+} catch {
+  // Ignore
+}
+
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const SneaksAPI = require('sneaks-api');
 // eslint-disable-next-line @typescript-eslint/no-require-imports
