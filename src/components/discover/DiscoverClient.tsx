@@ -353,3 +353,4 @@ export default function DiscoverClient({ initialData, initialQuery = 'jordan' }:
     </div>
   );
 }
+

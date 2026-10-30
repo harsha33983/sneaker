@@ -74,3 +74,4 @@ export default async function DiscoverDetailPage({ params }: ProductDetailPagePr
     </div>
   );
 }
+

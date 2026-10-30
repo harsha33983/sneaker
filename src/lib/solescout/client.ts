@@ -157,3 +157,4 @@ export async function getSoleScoutProductDetails(slug: string): Promise<SoleScou
     throw error;
   }
 }
+

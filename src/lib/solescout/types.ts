@@ -66,3 +66,4 @@ export interface SoleScoutProductDetail {
   source?: string;
   docs?: string;
 }
+

@@ -157,3 +157,4 @@ export default function LiveDiscoverSection({ sneakers }: LiveDiscoverSectionPro
     </section>
   );
 }
+

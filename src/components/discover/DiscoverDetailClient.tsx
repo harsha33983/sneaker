@@ -293,3 +293,4 @@ export default function DiscoverDetailClient({ product }: DiscoverDetailClientPr
     </div>
   );
 }
+
