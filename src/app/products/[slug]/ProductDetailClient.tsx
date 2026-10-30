@@ -68,18 +68,21 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                 {allImages.map((img, idx) => (
                   <button
                     key={idx}
+                    type="button"
                     onClick={() => setActiveImage(img)}
-                    className={`relative w-20 h-20 rounded-xl overflow-hidden bg-[#181818] border-2 transition-all shrink-0 p-1 ${
+                    className={`w-20 h-20 rounded-xl overflow-hidden bg-[#181818] border-2 transition-all shrink-0 p-1 block ${
                       activeImage === img ? 'border-[#D7FF45]' : 'border-[#333333] hover:border-[#555555]'
                     }`}
                   >
-                    <Image
-                      src={img}
-                      alt={`${product.name} thumb ${idx}`}
-                      fill
-                      className="object-contain p-1"
-                      unoptimized
-                    />
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={img}
+                        alt={`${product.name} thumb ${idx}`}
+                        fill
+                        className="object-contain p-1"
+                        unoptimized
+                      />
+                    </div>
                   </button>
                 ))}
               </div>

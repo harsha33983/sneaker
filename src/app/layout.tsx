@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} dark`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${spaceGrotesk.variable} ${inter.variable} dark`}>
       <body className="min-h-screen bg-[#111111] text-[#F5F3EE] font-[family-name:var(--font-inter)] antialiased selection:bg-[#D7FF45]/20 selection:text-[#D7FF45]">
         {children}
         <Toaster

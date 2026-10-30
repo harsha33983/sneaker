@@ -12,3 +12,4 @@ export const viewport: Viewport = {
 export default function NovaLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
+
