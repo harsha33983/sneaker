@@ -2,16 +2,16 @@ import { createAdminClient, isSupabaseConfigured } from '@/lib/supabase/admin';
 import { createServerSupabaseClient } from '@/lib/supabase/server';
 import { Product, Availability } from '@/types';
 
-// Default initial seed data defined in PRD Section 6.1 + Nova 01
+// Default initial seed data defined in PRD Section 6.1
 export const SEED_PRODUCTS: Product[] = [
   {
     id: 'e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c',
-    name: 'Nova 01',
-    slug: 'nova-01',
-    brand: 'Nova Running',
+    name: 'Phantom Pulse 01',
+    slug: 'phantom-pulse-01',
+    brand: 'SneakerDrop Originals',
     price: 12999,
     description:
-      'A 198 g road-running shoe with a glowing foam midsole. One piece of foam, tuned to give back more than you put in. A light strip runs through it, so you are seen before you are heard.',
+      'A 198 g lightweight runner featuring an electric orange solar light strip and glowing foam midsole. Tuned for explosive kinetic energy return with an obsidian reflective finish.',
     image_url: 'https://prompts.picsmob.com/frames/nova/frame_0001.jpg',
     images: [
       'https://prompts.picsmob.com/frames/nova/frame_0001.jpg',
@@ -21,7 +21,7 @@ export const SEED_PRODUCTS: Product[] = [
     category: 'Running',
     availability: 'limited',
     is_featured: true,
-    style_id: 'NOVA-01-2026',
+    style_id: 'SD-PULSE-01',
     colorway: 'Pure White / Solar Orange',
     retail_price: 160,
     marketplace_prices: { goat: 180, flightClub: 180 },
